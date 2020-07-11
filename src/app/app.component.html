@@ -1,0 +1,8 @@
+<div [class.d-none]="!show" class="h-100 w-100">
+  <div style="position: fixed; top: 50%; left: 50%; transform:translate(-50%,-50%);" class="loader-overlay mx-auto my-auto">
+      <div *ngIf="show" class="loader"></div>
+  </div>
+</div>
+<div [class.d-none]="show" class="h-100">
+  <router-outlet></router-outlet>
+</div>
