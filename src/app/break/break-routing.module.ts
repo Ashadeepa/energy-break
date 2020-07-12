@@ -10,7 +10,7 @@ const routes: Routes = [
     component: BreakLayoutComponent,
     children: [
       {
-        path: '',
+        path: ':category',
         component: BreakHomeComponent
       }
     ]

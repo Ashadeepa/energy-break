@@ -1,0 +1,56 @@
+<div class="row h-100">
+    <div class="col-md-12 mx-auto px-md-5">
+        <div class="row">
+            <div class="col-12">
+                <p style="font-size: x-large;" class="lead mt-md-4 mb-1 d-inline-block">
+                    <strong>Energy Break</strong>
+                </p>
+                <div class="w-auto float-right mt-md-4 d-inline-block">
+                    <p style="font-size: large;" class="lead d-inline-block mr-2">
+                        <a disableRipple mat-button>
+                            <mat-icon>update</mat-icon>
+                        </a>
+                        <strong>10 Minutes</strong>
+                    </p>
+                    <a class="mx-1" routerLink="/settings" mat-flat-button>
+                        <mat-icon>settings</mat-icon>
+                    </a>
+                    <span class="mx-2"> | </span>
+                    <a mat-raised-button (click)="cancel()" class="mx-1">Cancel</a>
+                    <a mat-raised-button
+                        (click)="end()" class="mx-1">End</a>
+                </div>
+            </div>
+        </div>
+        <mat-card class="px-4 large-card">
+            <!-- Recommended -->
+            <div class="w-auto h-auto mb-3">
+                <div class="row">
+                    <div class="col-12">
+                        <p class="lead">
+                            <strong>{{ category }}</strong>
+                        </p>
+                        <!-- divider -->
+                        <div class="px-5 border-top mb-3"></div>
+                        <!-- description -->
+                        <p style="font-size: large;" class="lead">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid cumque quisquam
+                            voluptate incidunt rem dolore placeat quia magnam harum dolor, praesentium quasi sed fuga
+                            totam!
+                            Sunt ipsa accusantium explicabo enim!
+                        </p>
+                    </div>
+                </div>
+
+                <div *ngIf="!isCompleted" style="height: 20rem;" class="row mt-md-4">
+                    <div style="background-color: #dae2e8;" class="col-md-8 mx-auto h-100 d-flex">
+                        <iframe width="75%" height="75%" class="my-auto mx-auto" src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                        </iframe>
+                    </div>
+                </div>
+
+                <app-break-completion *ngIf="isCompleted" [category]="category"></app-break-completion>
+            </div>
+        </mat-card>
+    </div>
+</div>

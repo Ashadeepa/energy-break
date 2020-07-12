@@ -12,20 +12,20 @@
                         </a>
                         <strong>10 Minutes</strong>
                     </p>
-                    <a class="mx-1" mat-flat-button>
+                    <a class="mx-1" routerLink="/settings" mat-flat-button>
                         <mat-icon>settings</mat-icon>
                     </a>
                     <span class="mx-2"> | </span>
-                    <a mat-raised-button class="mx-1">Cancel</a>
-                    <a style="background-color: #007cbe;" mat-raised-button class="mx-1 text-white">Continue</a>
+                    <a mat-raised-button (click)="cancel()" class="mx-1">Cancel</a>
+                    <a mat-raised-button [disabled]="minutes == null" (click)="start()" class="mx-1 text-white continue-button">Start</a>
                 </div>
             </div>
         </div>
-        <mat-card style="border-radius: 0; height: 85%; overflow-y: scroll;" class="px-4">
+        <mat-card class="px-4 large-card">
             <!-- Title -->
             <div class="w-auto h-auto mb-3">
                 <p class="lead">
-                    <strong>Energy Break Title</strong>
+                    <strong>{{ category }}</strong>
                 </p>
                 <!-- divider -->
                 <div class="px-5 border-top mb-3"></div>
@@ -39,21 +39,21 @@
                         <div class="row">
                             <div class="col-lg-3 col-md-5 mx-auto">
                                 <h6 class="h6 text-center">
-                                    Select Time for Energy Break Title
+                                    Select Time for {{ category }}
                                 </h6><br>
-                                <div class="w-100 h-auto text-center border py-2 my-3">
+                                <div (click)="setMinutes(1)" [ngClass]="{'selected': minutes == 1}" class="w-100 h-auto text-center border py-2 my-3 cursor-pointer">
                                     1 Minute
                                 </div>
-                                <div class="w-100 h-auto text-center border py-2 my-3">
+                                <div (click)="setMinutes(2)" [ngClass]="{'selected': minutes == 2}" class="w-100 h-auto text-center border py-2 my-3 cursor-pointer">
                                     2 Minute
                                 </div>
-                                <div class="w-100 h-auto text-center border py-2 my-3">
+                                <div (click)="setMinutes(5)" [ngClass]="{'selected': minutes == 5}" class="w-100 h-auto text-center border py-2 my-3 cursor-pointer">
                                     5 Minute
                                 </div>
-                                <div class="w-100 h-auto text-center border py-2 my-3">
+                                <div (click)="setMinutes(7)" [ngClass]="{'selected': minutes == 7}" class="w-100 h-auto text-center border py-2 my-3 cursor-pointer">
                                     7 Minute
                                 </div>
-                                <div class="w-100 h-auto text-center border py-2 my-3">
+                                <div (click)="setMinutes(10)" [ngClass]="{'selected': minutes == 10}" class="w-100 h-auto text-center border py-2 my-3 cursor-pointer">
                                     10 Minute
                                 </div>
                             </div>

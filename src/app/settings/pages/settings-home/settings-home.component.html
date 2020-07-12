@@ -1,1 +1,59 @@
-<p>settings-home works!</p>
+<div class="row h-100">
+    <div class="col-md-12 mx-auto px-md-5">
+        <div class="row">
+            <div class="col-12">
+                <p style="font-size: x-large;" class="lead mt-md-4 mb-1 d-inline-block">
+                    <strong>Energy Break</strong>
+                </p>
+                <div class="w-auto float-right mt-md-4 d-inline-block">
+                    <p style="font-size: large;" class="lead d-inline-block mr-2">
+                        <a disableRipple mat-button>
+                            <mat-icon>update</mat-icon>
+                        </a>
+                        <strong>10 Minutes</strong>
+                    </p>
+                    <a class="mx-1" style="color: #007cbe;" routerLink="/settings" mat-flat-button>
+                        <mat-icon>settings</mat-icon>
+                    </a>
+                    <span class="mx-2"> | </span>
+                    <a mat-raised-button (click)="cancel()" class="mx-1">Cancel</a>
+                    <a [disabled]="selectedIndex == null && selectedRecommendedIndex == null" mat-raised-button (click)="continue()" class="mx-1 text-white continue-button">Continue</a>
+                </div>
+            </div>
+        </div>
+        <mat-card class="px-4 large-card">
+            <!-- Settings -->
+            <div class="w-auto h-25 mb-3">
+                
+            </div>
+
+            <!-- Select Activity at least 2 -->
+            <div class="w-auto h-auto">
+                <p class="lead">
+                    <strong>Select Activity at least 2</strong>
+                </p>
+                <!-- divider -->
+                <div class="px-5 border-top mb-3"></div>
+                <div class="row px-2">
+                    <div *ngFor="let a of allActivities; let j = index;" class="col-lg-2-5 mb-3">
+                        <mat-card (click)="setRow(j)" class="px-0 py-0 text-white cursor-pointer card">
+                            <img src="{{a.image}}" alt="" class="img img-fluid w-100">
+                            <div [ngClass]="{'overlay': selectedIndex == j}" class="overlay-half">
+                                <div id="text" [ngClass]="{'d-none': selectedIndex != j}">
+                                    <mat-icon>check_circle_underline</mat-icon>
+                                </div>
+                            </div>
+                            <div class="position-absolute py-3 d-flex h-100 my-auto" style="top: 0;">
+                                <div class="my-auto">
+                                    <h6 class="h6 mx-3">{{ a.title }}</h6>
+                                    <p style="font-size: small;" class="lead my-0 mx-3">{{ a.description }}</p>
+                                    <mat-icon style="font-size: small;" class="ml-auto my-0 d-block">favorite_border</mat-icon>
+                                </div>
+                            </div>
+                        </mat-card>
+                    </div>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+</div>

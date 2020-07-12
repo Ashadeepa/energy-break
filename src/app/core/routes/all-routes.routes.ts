@@ -18,4 +18,8 @@ export const ALL_ROUTES: Routes = [
         path: 'break',
         loadChildren: () => import('../../break/break.module').then(m => m.BreakModule)
     },
+    {
+        path: 'break-content',
+        loadChildren: () => import('../../break-content/break-content.module').then(m => m.BreakContentModule)
+    },
 ];

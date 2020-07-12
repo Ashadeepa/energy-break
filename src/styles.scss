@@ -7,3 +7,141 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-
 ::-webkit-scrollbar {
     width: 1px;
 }
+
+.continue-button{
+    background-color: #007cbe;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.overlay{
+    background: rgba(0,0,0,.40) !important;
+    opacity: 1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: 5;
+}
+
+.overlay-half{
+    background: rgba(0,0,0,.32);
+    opacity: 1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
+
+#text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: white;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+  }
+
+.background{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+}
+
+// @media only screen and (min-width: 992px) {
+    
+// }
+
+// XS
+@media only screen and (max-width: 767px) {
+    .col-lg-2-5{
+        width: 100%;
+        float: left;
+        margin-right: 0.9;
+        margin-left: 0.9;
+    }
+    .card{
+        overflow: hidden;
+        max-height: 7rem;
+    }
+    .large-card{
+        border-radius: 0;
+        height: 85% !important;
+        overflow-y: scroll;
+    }
+}
+// Ipad
+@media only screen and (max-width: 991px) and (min-width: 768px) {
+    .col-lg-2-5{
+        width: 23%;
+        float: left;
+        margin-right: 0.3rem;
+        margin-left: 0.3rem;
+    }
+    .card{
+        overflow: hidden;
+        max-height: 8rem;
+    }
+    .large-card{
+        border-radius: 0;
+        height: 85% !important;
+        overflow-y: scroll;
+    }
+}
+// Ipad Pro
+@media only screen and (max-width: 1199px) and (min-width: 992px) {
+    .col-lg-2-5{
+        width: 18%;
+        float: left;
+        margin-right: 0.5rem;
+        margin-left: 0.5rem;
+    }
+    .card{
+        overflow: hidden;
+        max-height: 8rem;
+    }
+    .large-card{
+        border-radius: 0;
+        height: 85% !important;
+        overflow-y: scroll;
+    }
+}
+
+// Laptop
+@media only screen and (max-width: 1500px) and (min-width: 1200px) {
+    .col-lg-2-5{
+        width: 18%;
+        float: left;
+        margin-right: 0.6rem;
+        margin-left: 0.6rem;
+    }
+    .card{
+        overflow: hidden;
+        max-height: 7rem;
+    }
+    .large-card{
+        border-radius: 0;
+        height: 85% !important;
+        overflow-y: scroll;
+    }
+}
+
+@media only screen and (max-width: 1920px) and (min-width: 1501px) {
+    .col-lg-2-5{
+        width: 18%;
+        float: left;
+        margin-right: 0.8rem;
+        margin-left: 0.8rem;
+    }
+    .card{
+        overflow: hidden;
+        max-height: 7rem;
+    }
+    .large-card{
+        border-radius: 0;
+        height: 85% !important;
+        overflow-y: scroll;
+    }
+}
