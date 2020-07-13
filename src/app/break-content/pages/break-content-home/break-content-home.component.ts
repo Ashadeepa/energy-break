@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-break-content-home',
@@ -15,7 +16,8 @@ export class BreakContentHomeComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private location: Location
   ) { }
 
   ngOnInit() {
@@ -30,7 +32,7 @@ export class BreakContentHomeComponent implements OnInit {
   }
 
   cancel() {
-
+    this.location.back();
   }
 
   end() {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-break-home',
@@ -13,7 +14,8 @@ export class BreakHomeComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private location: Location
   ) { }
 
   ngOnInit() {
@@ -22,6 +24,7 @@ export class BreakHomeComponent implements OnInit {
 
   cancel() {
     this.minutes = null;
+    this.location.back();
   }
 
   setMinutes(_minutes: number) {

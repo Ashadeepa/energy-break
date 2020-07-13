@@ -1,66 +1,76 @@
 <div class="row h-100">
-    <div class="col-md-12 mx-auto px-md-5">
-        <div class="row">
-            <div class="col-12">
-                <p style="font-size: x-large;" class="lead mt-4 mb-1 d-inline-block">
-                    <strong>Energy Break</strong>
-                </p>
-                <div class="w-auto float-right mt-4 d-inline-block">
-                    <p style="font-size: large;" class="lead d-inline-block mr-2">
-                        <a disableRipple mat-button>
-                            <mat-icon>update</mat-icon>
-                        </a>
-                        <strong>10 Minutes</strong>
-                    </p>
-                    <a class="mx-1" routerLink="/settings" mat-flat-button>
-                        <mat-icon>settings</mat-icon>
-                    </a>
-                    <span class="mx-2"> | </span>
-                    <a mat-raised-button (click)="cancel()" class="mx-1">Cancel</a>
-                    <a mat-raised-button [disabled]="minutes == null" (click)="start()" class="mx-1 text-white continue-button">Start</a>
-                </div>
-            </div>
+  <div class="col-md-12 mx-auto px-md-5">
+    <div class="row">
+      <div class="col-12">
+        <p style="font-size: x-large;" class="lead mt-4 mb-1 d-inline-block">
+          <strong>Energy Break</strong>
+        </p>
+        <div class="w-auto float-right mt-4 d-inline-block">
+          <p style="font-size: large;" class="lead d-inline-block mr-2">
+            <a disableRipple mat-button>
+              <mat-icon [ngStyle]="{'color':'#7d79ea'}">update</mat-icon>
+            </a>
+            <strong [ngStyle]="{'margin-left': '-15px'}">10 Minutes</strong>
+          </p>
+          <a class="mx-1" routerLink="/settings" mat-flat-button>
+            <mat-icon [ngStyle]="{'color':'#8FA1B3'}">settings</mat-icon>
+          </a>
+          <span class="mx-2"> | </span>
+          <a mat-raised-button (click)="cancel()" class="mx-1">Cancel</a>
+          <a mat-raised-button [disabled]="minutes == null" (click)="start()" class="mx-1 text-white continue-button">Start</a>
         </div>
-        <mat-card class="px-4 large-card">
-            <!-- Title -->
-            <div class="w-auto h-auto mb-3">
-                <p class="lead">
-                    <strong>{{ category }}</strong>
-                </p>
-                <!-- divider -->
-                <div class="px-5 border-top mb-3"></div>
-                <div class="row">
-                    <div class="col-12 mb-md-5">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, iste! Ad, quod! Ipsum impedit
-                        maxime ullam repellendus provident, deserunt aut, excepturi fugit, nobis qui error saepe fugiat
-                        quae perferendis labore!
-                    </div>
-                    <div class="col-12">
-                        <div class="row">
-                            <div class="col-lg-3 col-md-5 mx-auto">
-                                <h6 class="h6 text-center">
-                                    Select Time for {{ category }}
-                                </h6><br>
-                                <div (click)="setMinutes(1)" [ngClass]="{'selected': minutes == 1}" class="w-100 h-auto text-center border py-2 my-3 cursor-pointer">
-                                    1 Minute
-                                </div>
-                                <div (click)="setMinutes(2)" [ngClass]="{'selected': minutes == 2}" class="w-100 h-auto text-center border py-2 my-3 cursor-pointer">
-                                    2 Minute
-                                </div>
-                                <div (click)="setMinutes(5)" [ngClass]="{'selected': minutes == 5}" class="w-100 h-auto text-center border py-2 my-3 cursor-pointer">
-                                    5 Minute
-                                </div>
-                                <div (click)="setMinutes(7)" [ngClass]="{'selected': minutes == 7}" class="w-100 h-auto text-center border py-2 my-3 cursor-pointer">
-                                    7 Minute
-                                </div>
-                                <div (click)="setMinutes(10)" [ngClass]="{'selected': minutes == 10}" class="w-100 h-auto text-center border py-2 my-3 cursor-pointer">
-                                    10 Minute
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </mat-card>
+      </div>
     </div>
+    <mat-card class="px-4 large-card">
+      <!-- Title -->
+      <div class="w-auto h-auto mb-3">
+        <p class="lead">
+          <strong>{{ category }}</strong>
+        </p>
+        <!-- divider -->
+        <div class="px-5 border-top mb-3"></div>
+        <div class="row">
+          <div class="col-12 mb-md-5" *ngIf="category==='Desk Stretching'">
+            Don't let sitting at work make your body stiff and sore! Repetitive movement patterns can cause neck and
+            shoulder strain. With these quick and easy stretches you can reduce the risk of soft tissue injuries,
+            boost your energy levels, and even improve your body's range of motion. Deskercises won’t promise Olympic
+            mile times or six-pack abs, they might just improve strength and burn a few extra calories to boot!
+          </div>
+          <div class="col-12 mb-md-5" *ngIf="category==='Meditation'">
+            Say no to stress! We have you all covered with short break time meditation sessions for everyday well-being.
+            Meditation helps you manage stressful thoughts and feel more relaxed!
+          </div>
+          <div class="col-12">
+            <div class="row">
+              <div class="col-lg-3 col-md-5 mx-auto">
+                <h6 class="h6 text-center">
+                  Select Time for {{ category }}
+                </h6><br>
+                <div (click)="setMinutes(1)" [ngClass]="{'selected': minutes == 1}"
+                     class="w-100 h-auto text-center border py-2 my-3 cursor-pointer">
+                  1 Minute
+                </div>
+                <div (click)="setMinutes(3)" [ngClass]="{'selected': minutes == 3}"
+                     class="w-100 h-auto text-center border py-2 my-3 cursor-pointer">
+                  3 Minute
+                </div>
+                <div (click)="setMinutes(5)" [ngClass]="{'selected': minutes == 5}"
+                     class="w-100 h-auto text-center border py-2 my-3 cursor-pointer">
+                  5 Minute
+                </div>
+                <div (click)="setMinutes(7)" [ngClass]="{'selected': minutes == 7}"
+                     class="w-100 h-auto text-center border py-2 my-3 cursor-pointer">
+                  7 Minute
+                </div>
+                <div (click)="setMinutes(10)" [ngClass]="{'selected': minutes == 10}"
+                     class="w-100 h-auto text-center border py-2 my-3 cursor-pointer">
+                  10 Minute
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-settings-home',
@@ -52,13 +53,16 @@ export class SettingsHomeComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor(
+    private location: Location
+  ) { }
 
   ngOnInit() {
   }
 
   public cancel() {
     this.selectedIndex = null;
+    this.location.back();
   }
 
   public setRow(_index: number) {

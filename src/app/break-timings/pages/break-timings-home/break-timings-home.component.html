@@ -8,12 +8,12 @@
                 <div class="w-auto float-right d-inline-block">
                     <p style="font-size: large;" class="lead d-inline-block mr-2">
                         <a disableRipple mat-button>
-                            <mat-icon>update</mat-icon>
+                            <mat-icon [ngStyle]="{'color':'#7d79ea'}">update</mat-icon>
                         </a>
-                        <strong>10 Minutes</strong>
+                      <strong [ngStyle]="{'margin-left': '-15px'}">10 Minutes</strong>
                     </p>
                     <a class="mx-1" routerLink="/settings" mat-flat-button>
-                        <mat-icon>settings</mat-icon>
+                        <mat-icon [ngStyle]="{'color':'#8FA1B3'}">settings</mat-icon>
                     </a>
                     <span class="mx-2"> | </span>
                     <a mat-raised-button (click)="cancel()" class="mx-1">Cancel</a>
