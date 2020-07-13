@@ -10,7 +10,7 @@
                         <a disableRipple mat-button>
                             <mat-icon [ngStyle]="{'color':'#7d79ea'}">update</mat-icon>
                         </a>
-                      <strong [ngStyle]="{'margin-left': '-15px'}">10 Minutes</strong>
+                      <strong [ngStyle]="{'margin-left': '-15px'}">{{ remainingTime }} Minutes</strong>
                     </p>
                     <a class="mx-1" routerLink="/settings" mat-flat-button>
                         <mat-icon [ngStyle]="{'color':'#8FA1B3'}">settings</mat-icon>
@@ -74,7 +74,9 @@
                                 <div class="my-auto">
                                     <h6 class="h6 mx-3">{{ a.title }}</h6>
                                     <p style="font-size: small;" class="lead my-0 mx-3">{{ a.description }}</p>
-                                    <mat-icon style="font-size: small;" class="ml-auto my-0 d-block">favorite_border
+                                    <mat-icon *ngIf="j != 0 && j != 1" style="font-size: small;" class="ml-auto my-0 d-block">favorite_border
+                                    </mat-icon>
+                                    <mat-icon *ngIf="j == 0 || j == 1" style="font-size: small; color: red;" class="ml-auto my-0 d-block">favorite
                                     </mat-icon>
                                 </div>
                             </div>

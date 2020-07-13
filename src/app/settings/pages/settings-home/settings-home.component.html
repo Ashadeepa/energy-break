@@ -10,25 +10,64 @@
                         <a disableRipple mat-button>
                           <mat-icon [ngStyle]="{'color':'#7d79ea'}">update</mat-icon>
                         </a>
-                      <strong [ngStyle]="{'margin-left': '-15px'}">10 Minutes</strong>
+                      <strong [ngStyle]="{'margin-left': '-15px'}">0 Minute</strong>
                     </p>
-                    <a class="mx-1" style="color: #007cbe;" routerLink="/settings" mat-flat-button>
-                        <mat-icon [ngStyle]="{'color':'#8FA1B3'}">settings</mat-icon>
+                    <a class="mx-1" [disabled]=true style="color: #007cbe;" routerLink="/settings" mat-flat-button>
+                        <mat-icon  [ngStyle]="{'color':'#8FA1B3'}">settings</mat-icon>
                     </a>
                     <span class="mx-2"> | </span>
                     <a mat-raised-button (click)="cancel()" class="mx-1">Cancel</a>
-                    <a [disabled]="selectedIndex == null && selectedRecommendedIndex == null" mat-raised-button (click)="continue()" class="mx-1 text-white continue-button">Continue</a>
                 </div>
             </div>
         </div>
         <mat-card class="px-4 large-card">
             <!-- Settings -->
-            <div class="w-auto h-25 mb-3">
+            <div class="w-auto h-auto mb-3">
+                <div class="row">
+                    <div class="col-md-3">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Break Frequency</mat-label>
+                            <mat-select>
+                                <mat-option>None</mat-option>
+                                <!-- <mat-option value="option1">Option 1</mat-option>
+                              <mat-option value="option2">Option 2</mat-option>
+                              <mat-option value="option3">Option 3</mat-option> -->
+                            </mat-select>
+                        </mat-form-field> <br>
 
+                        <mat-form-field appearance="outline">
+                            <mat-label>Break Timing</mat-label>
+                            <mat-select>
+                                <mat-option>None</mat-option>
+                                <!-- <mat-option value="option1">Option 1</mat-option>
+                              <mat-option value="option2">Option 2</mat-option>
+                              <mat-option value="option3">Option 3</mat-option> -->
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-3">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Break To</mat-label>
+                            <input matInput [matDatepicker]="to">
+                            <mat-datepicker-toggle matSuffix [for]="to"></mat-datepicker-toggle>
+                            <mat-datepicker #to></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-3">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Break From</mat-label>
+                            <input matInput [matDatepicker]="from">
+                            <mat-datepicker-toggle matSuffix [for]="from"></mat-datepicker-toggle>
+                            <mat-datepicker #from></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
             </div>
 
             <!-- Select Activity at least 2 -->
-            <div class="w-auto h-auto">
+            <div class="w-auto h-auto mb-3">
                 <p class="lead">
                     <strong>Select Activity at least 2</strong>
                 </p>
@@ -47,10 +86,53 @@
                                 <div class="my-auto">
                                     <h6 class="h6 mx-3">{{ a.title }}</h6>
                                     <p style="font-size: small;" class="lead my-0 mx-3">{{ a.description }}</p>
-                                    <mat-icon style="font-size: small;" class="ml-auto my-0 d-block">favorite_border</mat-icon>
+                                    <mat-icon style="font-size: small;" class="ml-auto my-0 d-block">favorite_border
+                                    </mat-icon>
                                 </div>
                             </div>
                         </mat-card>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reminder -->
+            <div class="w-auto h-auto">
+                <p class="lead">
+                    <strong>Reminder</strong>
+                </p>
+                <!-- divider -->
+                <div class="px-5 border-top mb-3"></div>
+                <div class="row px-2">
+                    <div class="col-md-4">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Hand Wash</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Frequency</mat-label>
+                            <mat-select>
+                                <mat-option>None</mat-option>
+                                <mat-option value="Every 20 Minutes">Every 20 Minutes</mat-option>
+                              <!-- <mat-option value="option2">Option 2</mat-option>
+                              <mat-option value="option3">Option 3</mat-option> -->
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-2">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Status</mat-label>
+                            <mat-select>
+                                <mat-option>None</mat-option>
+                                <mat-option value="Every 20 Minutes"> Active</mat-option>
+                              <!-- <mat-option value="option2">Option 2</mat-option> -->
+                              <!-- <mat-option value="option3">Option 3</mat-option> -->
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-2">
+                        <button mat-raised-button class="mt-md-3">Add New +</button>
                     </div>
                 </div>
             </div>

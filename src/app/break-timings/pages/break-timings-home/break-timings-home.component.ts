@@ -1,16 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoaderService } from 'src/app/core/services/loader.service';
+import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-break-timings-home',
   templateUrl: './break-timings-home.component.html',
   styleUrls: ['./break-timings-home.component.scss']
 })
-export class BreakTimingsHomeComponent implements OnInit {
+export class BreakTimingsHomeComponent implements OnInit, OnDestroy {
+
+  private _unsubscribe = new Subject<boolean>();
 
   public selectedIndex: number;
   public selectedRecommendedIndex: number;
   public category: string;
+
+  public remainingTime: number;
 
   public recommended: any[] = [
     {
@@ -69,10 +76,17 @@ export class BreakTimingsHomeComponent implements OnInit {
   ];
 
   constructor(
-    private router: Router
+    private router: Router,
+    private _loaderService: LoaderService
   ) { }
 
   ngOnInit() {
+    this._loaderService.remainingTime.pipe(
+      takeUntil(this._unsubscribe)
+    ).subscribe(
+      data => this.remainingTime = data,
+      error => console.log(error)
+    );
   }
 
   public setRow(_index: number, _category: string) {
@@ -97,6 +111,11 @@ export class BreakTimingsHomeComponent implements OnInit {
     if (this.category != null) {
       this.router.navigate(['/break/' + this.category]);
     }
+  }
+
+  ngOnDestroy() {
+    this._unsubscribe.next(true);
+    this._unsubscribe.complete();
   }
 
 }

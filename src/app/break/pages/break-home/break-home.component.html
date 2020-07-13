@@ -10,7 +10,7 @@
             <a disableRipple mat-button>
               <mat-icon [ngStyle]="{'color':'#7d79ea'}">update</mat-icon>
             </a>
-            <strong [ngStyle]="{'margin-left': '-15px'}">10 Minutes</strong>
+            <strong [ngStyle]="{'margin-left': '-15px'}">{{ remainingTime }} Minutes</strong>
           </p>
           <a class="mx-1" routerLink="/settings" mat-flat-button>
             <mat-icon [ngStyle]="{'color':'#8FA1B3'}">settings</mat-icon>
