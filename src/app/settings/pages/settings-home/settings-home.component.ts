@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
+import {Subject} from 'rxjs';
+import {LoaderService} from '../../../core/services/loader.service';
+import {takeUntil} from 'rxjs/operators';
 
 @Component({
   selector: 'app-settings-home',
@@ -9,7 +12,11 @@ import { Location } from '@angular/common';
 export class SettingsHomeComponent implements OnInit {
 
   public selectedIndex: number;
+  public selectedRecommendedIndex: number;
+  public category: string;
+  private _unsubscribe = new Subject<boolean>();
 
+  public remainingTime: number;
   public allActivities = [
     {
       title: 'Desk Stretching',
@@ -54,10 +61,17 @@ export class SettingsHomeComponent implements OnInit {
   ];
 
   constructor(
-    private location: Location
+    private location: Location,
+    private _loaderService: LoaderService
   ) { }
 
   ngOnInit() {
+    this._loaderService.remainingTime.pipe(
+      takeUntil(this._unsubscribe)
+    ).subscribe(
+      data => this.remainingTime = data,
+      error => console.log(error)
+    );
   }
 
   public cancel() {
@@ -69,4 +83,8 @@ export class SettingsHomeComponent implements OnInit {
     this.selectedIndex = _index;
   }
 
+  ngOnDestroy() {
+    this._unsubscribe.next(true);
+    this._unsubscribe.complete();
+  }
 }
